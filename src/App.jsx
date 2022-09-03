@@ -1,17 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import Header from './Header.jsx';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import AllCalls from './pages/AllCalls.jsx';
+import Archive from './pages/Archive.jsx';
 
 const App = () => {
   return (
-    <div className='container'>
-      <Header/>
-      <div className="container-view">Some activities should be here</div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+  
+        <Route path="/">
+          <Route index element={<AllCalls/>}/>
+          <Route path="archive" element={<Archive/>}/>
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
+
   );
 };
-
-ReactDOM.render(<App/>, document.getElementById('app'));
 
 export default App;
